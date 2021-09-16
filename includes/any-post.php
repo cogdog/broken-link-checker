@@ -416,7 +416,8 @@ class blcPostTypeOverlord {
 		}
 
 		// @cogdog update to prefix the link with a wayback machine url
-		$link['href'] = 'https://web.archive.org/web/*/' . $link['href'];
+		// using the current year to get latest page, '*' would give search of all
+		$link['href'] = 'https://web.archive.org/web/' . date("Y") . '/' . $link['href'];
 
 		//Nofollow the link (unless it's already nofollow'ed)
 		if ( $this->plugin_conf->options['nofollow_broken_links'] ) {
